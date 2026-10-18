@@ -1,0 +1,166 @@
+/* 色はアプリ本体（時間割アプリ）に合わせている */
+:root {
+  --bg: #f0f1f5;
+  --card: #ffffff;
+  --text: #202124;
+  --muted: #535152;
+  --line: #d3d4d6;
+  --accent: #3578e5;
+  --accent-soft: #edf4ff;
+  --shadow: 0 4px 18px rgba(0, 0, 0, .05);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #121316;
+    --card: #1c1d21;
+    --text: #e8eaed;
+    --muted: #a0a5ad;
+    --line: #33363c;
+    --accent: #7aa8f7;
+    --accent-soft: #23324b;
+    --shadow: 0 4px 18px rgba(0, 0, 0, .35);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  /* --notice-height は script.js が注意書きの高さに合わせて設定する（一覧が注意書きに隠れないように） */
+  padding: 0 16px calc(32px + var(--notice-height, 110px));
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+/* ===== ヘッダー ===== */
+.site-header {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: calc(40px + env(safe-area-inset-top)) 0 24px;
+  text-align: center;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+}
+
+.brand-name {
+  font-size: clamp(32px, 9vw, 48px);
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.site-header h1 {
+  margin: 12px 0 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+/* ===== バージョン一覧 ===== */
+.version-list {
+  display: grid;
+  gap: 14px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.version-card {
+  padding: 18px 20px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.version-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.version-head h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.version-head time {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.version-card section { margin-top: 12px; }
+
+.version-card h3 {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.change-list {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.link-list a {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.empty {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ===== 注意書き（画面下に固定・最前面） ===== */
+.site-notice {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: var(--card);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -4px 18px rgba(0, 0, 0, .08);
+  font-size: 13px;
+}
+
+.site-notice strong,
+.site-notice p {
+  display: block;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.site-notice strong { color: var(--accent); }

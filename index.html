@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>IbaraTree 更新履歴</title>
+  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img class="brand-icon" src="icon.png" alt="">
+      <span class="brand-name">IbaraTree</span>
+    </div>
+    <h1>更新履歴</h1>
+  </header>
+
+  <main id="version-list" class="version-list"></main>
+
+  <!-- 画面の一番下に固定表示する注意書き -->
+  <aside id="site-notice" class="site-notice">
+    <strong>注意書き</strong>
+    <p>バージョンごとにURLは異なっています。自動でデータの引継ぎは行われませんので、バックアップ出力/読込 機能を使用して引き継いでください。</p>
+  </aside>
+
+  <!-- 更新履歴の中身は versions.js を編集してください -->
+  <script src="versions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
